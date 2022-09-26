@@ -9,7 +9,7 @@ const Header = (props: IHeader) => {
   const navigate = useNavigate();
   return (
     <Navbar bg="light" expand="lg" className={props.className}>
-      <Navbar.Brand>DinamicSun</Navbar.Brand>
+      <Navbar.Brand>DynamicSun</Navbar.Brand>
       <Nav>
         <Nav.Link onClick={() => navigate('/')}>Главная</Nav.Link>
       </Nav>
