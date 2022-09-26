@@ -3,11 +3,13 @@ using DynamicSun.TestProject.Weather.Factories;
 using DynamicSun.TestProject.Weather.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace DynamicSun.TestProject.Weather
 {
@@ -57,6 +59,8 @@ namespace DynamicSun.TestProject.Weather
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -72,7 +76,13 @@ namespace DynamicSun.TestProject.Weather
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "ClientApp/build";
+                spa.Options.SourcePath = "ClientApp";
+
+                if (env.IsDevelopment())
+                {
+                    spa.Options.StartupTimeout = TimeSpan.FromSeconds(120);
+                    //spa.UseReactDevelopmentServer(npmScript: "start");
+                }
             });
 
             app.UseEndpoints(endpoints =>
