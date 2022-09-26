@@ -1,0 +1,35 @@
+.view {
+  align-self: flex-start;
+}
+
+.view--control {
+  display: flex;
+  gap: 2em;
+  padding-bottom: 5px;
+}
+.view--control_btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.view--control_btns .btns {
+    display: flex;
+    gap: 1em
+}
+
+.view--control_select {
+}
+
+.view table {
+  width: 90vw;
+}
+.view table td {
+  table-layout: fixed;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.view td:nth-child(11) {
+  width: 100%;
+}

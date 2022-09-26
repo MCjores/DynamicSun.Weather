@@ -1,0 +1,18 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content{
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+.content >*{
+  margin: 10px;
+}
+
+.header{
+  margin-left: 2em;
+}
+ 
